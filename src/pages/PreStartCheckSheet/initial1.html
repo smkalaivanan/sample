@@ -1,0 +1,78 @@
+
+<ion-header >
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Pre-Start Check Sheet</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <form class="spacing" #form="ngForm" (ngSubmit)="addCheckSheet(form)" id="dailysheetform" novalidate>
+    <div class="inputSpacing">
+      <ion-item>
+        <ion-label floating>Site Address</ion-label>
+        <ion-input type="text" name="siteAddress"></ion-input>
+      </ion-item> 
+      <ion-item>
+        <ion-label floating>Equipment Name</ion-label>
+        <ion-input type="text" name="equipmentName"></ion-input>
+      </ion-item> 
+      <ion-item>
+        <ion-label floating>Equipment No</ion-label>
+        <ion-input type="text" name="equipmentNo"></ion-input>
+      </ion-item> 
+      <ion-item>
+        <ion-label floating>Plant</ion-label>
+        <ion-input type="text" name="plant"></ion-input>
+      </ion-item> 
+      <ion-item>
+        <ion-label floating>Operator</ion-label>
+        <ion-input type="text" name="operator"></ion-input>
+      </ion-item> 
+      <ion-item>
+        <ion-label floating>Hours/KM</ion-label>
+        <ion-input type="text" name="hourskm"></ion-input>
+      </ion-item> 
+    </div>
+
+    <br>
+
+    <!-- dynamic data -->
+
+    <div *ngFor="let data of dailysheetData">
+      <h3 *ngIf="data.parent == 1">{{data.label}}</h3>
+      <div *ngIf="data.parent == 0">
+        <h3>{{data.label}}</h3>
+        <!-- <div  *ngFor="let options of data.option">
+          <ion-item>
+            <ion-label>{{options}}</ion-label>
+            <ion-radio name="data.label_name" value="data.label"></ion-radio>
+          </ion-item>
+          <ion-label>{{options}}</ion-label>
+          <input type="radio" name="{{data.label_name}}" value="{{options}}">
+        </div>
+        <h2>comments</h2> -->
+        <ion-item *ngFor="let options of data.option">
+          <ion-label>{{options}} </ion-label>
+          <ion-radio checked="true" value="go"></ion-radio>
+        </ion-item>
+
+        <textarea name="{{data.label_name+'comments'}}"></textarea>
+      </div>
+    </div>
+
+    <ion-grid>
+        <ion-row>
+          <ion-col col-6>
+            <button ion-button block color="danger" round>Cancel</button>
+          </ion-col>
+          <ion-col col-6>
+            <button ion-button block color="energized" type="submit" round>Save</button>
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

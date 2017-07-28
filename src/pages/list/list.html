@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>List</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <!-- <ion-list>
+    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
+      <ion-icon [name]="item.icon" item-left></ion-icon>
+      {{item.title}}
+      <div class="item-note" item-right>
+        {{item.note}}
+      </div>
+    </button>
+  </ion-list>
+  <div *ngIf="selectedItem" padding>
+    You navigated here from <b>{{selectedItem.title}}</b>
+  </div> -->
+
+
+  <div class="frame">
+      <div>
+        <form class="form-signin"  (ngSubmit)="addCheckSheet(form)" id="dailysheetform">
+          <label for="username">Site Address</label>
+          <input class="form-styling" type="text" name="siteAddress" placeholder=""/>
+          <label for="password">Equipment Name</label>
+          <input class="form-styling" type="text" name="equipmentName" placeholder=""/>
+          <!-- <label for="password">Equipment No</label>
+          <label class="form-styling" name="equipmentNo" padding='5px'> 1 </label>
+ -->
+          <!-- <input class="form-styling" type="text" name="equipmentNo" placeholder=""/> -->
+          <label for="password">Plant</label>
+          <input class="form-styling" type="text" name="plant" placeholder=""/>
+          <label for="password">Operator</label>
+          <input class="form-styling" type="text" name="operator" placeholder=""/>
+          <label for="password">Hours/KM</label>
+          <input class="form-styling" type="text" name="hourskm" placeholder=""/>
+
+          <div *ngFor="let data of dailysheetData; let j = index">
+            <h3 *ngIf="data.parent == 1" class="header_title">{{data.label}}</h3>
+            <div *ngIf="data.parent == 0">
+              <label>{{data.label}}</label>
+              <!-- <div  *ngFor="let options of data.option">
+                <ion-item>
+                  <ion-label>{{options}}</ion-label>
+                  <ion-radio name="data.label_name" value="data.label"></ion-radio>
+                </ion-item>
+                <ion-label>{{options}}</ion-label>
+                <input type="radio" name="{{data.label_name}}" value="{{options}}">
+              </div>
+              <h2>comments</h2> -->
+              <!-- <ion-item *ngFor="let options of data.option">
+                <ion-label>{{options}} </ion-label>
+                <ion-radio checked="true" value="go"></ion-radio>
+              </ion-item> -->
+
+              <div *ngFor="let options of data.option; let i = index">
+                <input type="radio" name="{{data.label_name}}" id="radio{{i+''+j}}" class="radio"/>
+                <label for="radio{{i+''+j}}" class="radio_label"> <span style="color:black !important">{{options}}</span> </label>
+              </div>
+
+              <div class="spacer"></div>
+
+              <label for="password">Comments</label>
+              <input class="form-styling" type="text" name="{{data.label_name+'comments'}}" placeholder=""/>
+
+              <div class="spacer"></div>
+
+            </div>
+          </div>
+
+
+          
+</ion-content>

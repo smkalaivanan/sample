@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Profile</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12 col-sm col-6 col-md>
+        <ion-card>
+          <div class="card_card">
+            <div class="card_left">
+              <img  src="assets/img/profile-sidebar.png" />
+            </div>
+            <br>
+            <ul class="form">
+              <li>
+                <a><i class="icon-user"></i>Name</a>
+                <a><i class="icon-user"></i> {{profileName}} </a>
+              </li>
+              <li>
+                <a><i class="icon-envelope-alt"></i>Email</a>
+                <a><i class="icon-envelope-alt"></i> {{profileEmail}} </a>
+              </li>
+              <li>
+                <a><i class="icon-cog"></i>Phone</a>
+                <a><i class="icon-cog"></i> {{profilePhone}} </a>
+              </li>
+            </ul>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-3 offset-4>
+        <button ion-button block color="danger" round (click)="logout()">LogOut</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

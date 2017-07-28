@@ -1,0 +1,32 @@
+<ion-header >
+  <ion-navbar color='dark'>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title >History</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  
+<div class="dash_content">
+  <ion-grid>
+
+  <ion-card-header>
+   <h2>History</h2> 
+  </ion-card-header>
+
+  <ion-card>
+    <table class="rwd-table">
+      <tr *ngFor="let history of historyData" (click)="itemTapped(history.psid)">
+        <th>{{history.psid}}</th>
+        <th>Equipment Name: {{history.equipment_name}}</th>
+        <th>Equipment Id: {{history.equipment_id}}</th>
+        <th>{{history.created_at}}</th>
+      </tr>
+    </table>
+  </ion-card>
+</ion-grid>
+</div>
+
+</ion-content>

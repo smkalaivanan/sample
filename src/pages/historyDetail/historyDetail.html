@@ -1,0 +1,102 @@
+
+<ion-header >
+  <ion-navbar color="dark">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>History detail</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+           <ion-grid>
+          <ion-row>
+            <ion-col col-12 col-sm col-6 col-md>
+              <ion-card>
+                  <ul class="form">
+                    <li>
+                      <a><i class="icon-user"></i>Site Address</a>
+                      <a><i class="icon-user"></i> {{site}} </a>
+                    </li>
+                    <li>
+                      <a><i class="icon-envelope-alt"></i>Equipment Name</a>
+                      <a><i class="icon-envelope-alt"></i> {{eName}} </a>
+                    </li>
+                    <li>
+                      <a><i class="icon-cog"></i>Equipment ID</a>
+                      <a><i class="icon-cog"></i> {{eId}} </a>
+                    </li>
+                    <li>
+                      <a><i class="icon-cog"></i>Plant</a>
+                      <a><i class="icon-cog"></i> {{plant}} </a>
+                    </li>
+                    <li>
+                      <a><i class="icon-cog"></i>Operator</a>
+                      <a><i class="icon-cog"></i> {{operator}} </a>
+                    </li>
+                    <li>
+                      <a><i class="icon-cog"></i>Hours/Kms</a>
+                      <a><i class="icon-cog"></i> {{hours}} </a>
+                    </li>
+                    </ul>
+              <div class="spacer"></div>
+
+                  <div *ngFor="let data of historyData; let j = index">
+            <h3 *ngIf="data.parent == 1" class="header_title" text-center>{{data.label}}</h3>
+            <div *ngIf="data.parent == 0">
+                 <!--  <li>
+              <a><i class="icon-cog"></i>{{data.label}}</a>
+              <a><i class="icon-cog"></i> {{data.option}} </a>
+              <a><i class="icon-cog"></i> {{data.option}} </a>
+
+                    </li> -->
+
+            <ion-grid>
+            <ion-row>
+              <ion-col col-6>
+                <label> {{data.label}} </label>
+              </ion-col>
+              <ion-col col-3>
+                <label> {{data.option}} </label>
+              </ion-col>
+              <ion-col col-3>
+                <label> {{data.comments}} </label>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+
+              </div>
+             <div class="spacer"></div>
+
+            </div>
+
+              </ion-card>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-3 offset-4>
+              <button ion-button block color="danger" round navPop>Back</button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+          <!-- <div>
+            <input type="radio" name="radio" id="radio1" class="radio" checked/>
+            <label for="radio1" class="radio_label">First Option</label>
+          </div>
+
+          <div>
+            <input type="radio" name="radio" id="radio2" class="radio"/>
+            <label for="radio2" class="radio_label">Second Option</label>
+          </div>
+
+          <div>
+            <input type="radio" name="radio" id="radio3" class="radio"/>
+            <label for="radio3" class="radio_label">Third Option</label>
+          </div> -->
+
+        
+
+    
+</ion-content>

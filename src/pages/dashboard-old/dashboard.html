@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Dashboard</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+<div>
+     <button ion-button color="secondary" round (click)="pscs()">Start Pre Start CheckSheet</button>
+     <button ion-button color="light" round class="item-note"  item-right (click)="pscs()">Start Pre Start CheckSheet</button>
+
+</div>
+<ion-card>
+
+ <ion-card-header>
+   <h2>History</h2> 
+  </ion-card-header>
+   <ion-list>
+    <button ion-item *ngFor="let item of items">
+      {{item.title}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      Equipment Name:
+      {{item.equipment}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      Equipment Id:
+      {{item.equipmentId}}
+      <div class="item-note" item-right>
+        {{item.time}}
+      </div>
+      <!-- (click)="itemTapped($event, item) -->
+    </button>
+  </ion-list>
+  </ion-card>
+
+</ion-content>
